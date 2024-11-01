@@ -40,7 +40,7 @@ const SprayGuidance = () => {
       case 2:
         return darkMode ? 'bg-green-500 border-green-400 text-white' : 'bg-green-200 border-green-300 text-green-600';
       default:
-        return darkMode ? 'bg-gray-700 border-gray-500 text-white' : 'bg-gray-200 border-gray-300 text-gray-600';
+        return darkMode ? 'bg-gray-700 border-gray-500 text-white ' : 'bg-gray-200 border-gray-300 text-gray-600';
     }
   };
 
