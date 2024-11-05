@@ -4,6 +4,7 @@ import Header from './components/Header';
 import DatePickerComponent from './components/DatePickerComponent';
 import ForecastGrid from './components/ForecastGrid';
 import Footer from './components/Footer';
+import dayjs from 'dayjs';
 
 const SprayGuidance = () => {
   const [sprayData, setSprayData] = useState([]);
@@ -11,6 +12,8 @@ const SprayGuidance = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isForecastReady, setIsForecastReady] = useState(false);
 
+  const minDate = dayjs();
+  const maxDate = dayjs().add(7, 'day'); 
   const generateSprayData = (startDate) => {
     const start = startDate.toDate();
     const data = Array.from({ length: 36 }, (_, i) => {
@@ -25,11 +28,16 @@ const SprayGuidance = () => {
   };
 
   const handleGenerateForecast = () => {
-    if (selectedDate) {
+    if (selectedDate && selectedDate.isAfter(minDate) && selectedDate.isBefore(maxDate)) {
       generateSprayData(selectedDate);
       setIsForecastReady(true);
     }
   };
+
+  const isDateInRange = selectedDate && selectedDate.isAfter(minDate) && selectedDate.isBefore(maxDate);
+  const validationMessage = !isDateInRange && selectedDate ? 
+    `Please select a date within the range: ${minDate.format('MM/DD/YYYY')} - ${maxDate.format('MM/DD/YYYY')}.` 
+    : '';
 
   const getGuidanceColor = (guidance) => {
     switch (guidance) {
@@ -66,6 +74,12 @@ const SprayGuidance = () => {
           <h1 className="text-3xl font-bold tracking-wider">36-Hour Spray Guidance</h1>
           <p className="text-lg mt-4">Select a date and time to start the forecast</p>
         </div>
+
+        {validationMessage && (
+          <p className="text-red-600 mt-2 text-sm">
+            {validationMessage}
+          </p>
+        )}
 
         <div className="mt-6 flex flex-col items-center">
           <DatePickerComponent selectedDate={selectedDate} setSelectedDate={(date) => { setSelectedDate(date); setIsForecastReady(false); }} darkMode={darkMode} />
