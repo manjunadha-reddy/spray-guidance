@@ -37,7 +37,7 @@ const SprayGuidance = () => {
 
   const isDateInRange = selectedDate && selectedDate.isAfter(minDate) && selectedDate.isBefore(maxDate);
   const validationMessage = !isDateInRange && selectedDate ? 
-    `Please select a date within the range: ${minDate.format('MM/DD/YYYY')} - ${maxDate.format('MM/DD/YYYY')}.` 
+    `Please select a date within the date and time range: ${minDate.format('MM/DD/YYYY')} - ${maxDate.format('MM/DD/YYYY')}.` 
     : '';
 
   const getGuidanceColor = (guidance) => {
@@ -76,18 +76,18 @@ const SprayGuidance = () => {
           <p className="text-lg mt-4">Select a date and time to start the forecast</p>
         </div>
 
-        {validationMessage && (
-          <p className="text-red-600 mt-2 text-sm">
-            {validationMessage}
-          </p>
-        )}
-
         <div className="mt-6 flex flex-col items-center">
           <DatePickerComponent selectedDate={selectedDate} 
               setSelectedDate={(date) => { setSelectedDate(date); setIsForecastReady(false); }} 
               darkMode={darkMode}
               minDate={minDate}
               maxDate={maxDate} />
+
+          {validationMessage && (
+            <p className="text-red-600 mt-2 text-sm">
+              {validationMessage}
+            </p>
+          )}
 
           {selectedDate && (
             <button
