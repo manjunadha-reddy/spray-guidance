@@ -5,13 +5,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
-const DatePickerComponent = ({ selectedDate, setSelectedDate, darkMode }) => (
+const DatePickerComponent = ({ selectedDate, setSelectedDate, darkMode, minDate, maxDate }) => (
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DemoContainer components={['DateTimePicker']}>
       <DateTimePicker
         label="Enter date & time"
         value={selectedDate}
         onChange={(newValue) => setSelectedDate(newValue)}
+        minDate={minDate} 
+        maxDate={maxDate} 
         sx={{
           '& .MuiInputBase-root': {
             backgroundColor: darkMode ? 'black' : 'white',

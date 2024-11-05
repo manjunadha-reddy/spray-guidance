@@ -14,6 +14,7 @@ const SprayGuidance = () => {
 
   const minDate = dayjs();
   const maxDate = dayjs().add(7, 'day'); 
+
   const generateSprayData = (startDate) => {
     const start = startDate.toDate();
     const data = Array.from({ length: 36 }, (_, i) => {
@@ -82,7 +83,11 @@ const SprayGuidance = () => {
         )}
 
         <div className="mt-6 flex flex-col items-center">
-          <DatePickerComponent selectedDate={selectedDate} setSelectedDate={(date) => { setSelectedDate(date); setIsForecastReady(false); }} darkMode={darkMode} />
+          <DatePickerComponent selectedDate={selectedDate} 
+              setSelectedDate={(date) => { setSelectedDate(date); setIsForecastReady(false); }} 
+              darkMode={darkMode}
+              minDate={minDate}
+              maxDate={maxDate} />
 
           {selectedDate && (
             <button
