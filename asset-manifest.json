@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/spray-guidance/static/css/main.a2e2519b.css",
-    "main.js": "/spray-guidance/static/js/main.fea240e3.js",
+    "main.css": "/spray-guidance/static/css/main.0940c63d.css",
+    "main.js": "/spray-guidance/static/js/main.7bfb78ec.js",
     "static/js/453.9dcdd428.chunk.js": "/spray-guidance/static/js/453.9dcdd428.chunk.js",
     "index.html": "/spray-guidance/index.html",
-    "main.a2e2519b.css.map": "/spray-guidance/static/css/main.a2e2519b.css.map",
-    "main.fea240e3.js.map": "/spray-guidance/static/js/main.fea240e3.js.map",
+    "main.0940c63d.css.map": "/spray-guidance/static/css/main.0940c63d.css.map",
+    "main.7bfb78ec.js.map": "/spray-guidance/static/js/main.7bfb78ec.js.map",
     "453.9dcdd428.chunk.js.map": "/spray-guidance/static/js/453.9dcdd428.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2e2519b.css",
-    "static/js/main.fea240e3.js"
+    "static/css/main.0940c63d.css",
+    "static/js/main.7bfb78ec.js"
   ]
 }
